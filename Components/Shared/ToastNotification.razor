@@ -1,0 +1,43 @@
+<div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1080;">
+    @foreach (var toast in Toasts)
+    {
+        <div class="toast show border-0 shadow-lg rounded-3 mb-2 bg-white" role="alert">
+            <div class="toast-header border-bottom-0 bg-white rounded-top-3">
+                <i class="bi @GetIconClass(toast.Type) me-2 @GetTextClass(toast.Type)"></i>
+                <strong class="me-auto text-dark">@toast.Title</strong>
+                <small class="text-muted">Just now</small>
+                <button type="button" class="btn-close" @onclick="() => OnDismiss.InvokeAsync(toast.Id)"></button>
+            </div>
+            <div class="toast-body pt-0 text-secondary fs-7">
+                @toast.Message
+            </div>
+        </div>
+    }
+</div>
+
+@code {
+    public class ToastItem
+    {
+        public string Id { get; set; } = Guid.NewGuid().ToString();
+        public string Type { get; set; } = "success"; // success, error, info
+        public string Title { get; set; } = string.Empty;
+        public string Message { get; set; } = string.Empty;
+    }
+
+    [Parameter] public List<ToastItem> Toasts { get; set; } = new();
+    [Parameter] public EventCallback<string> OnDismiss { get; set; }
+
+    private string GetIconClass(string type) => type switch
+    {
+        "success" => "bi-check-circle-fill",
+        "error" => "bi-exclamation-octagon-fill",
+        _ => "bi-info-circle-fill"
+    };
+
+    private string GetTextClass(string type) => type switch
+    {
+        "success" => "text-success",
+        "error" => "text-danger",
+        _ => "text-primary"
+    };
+}

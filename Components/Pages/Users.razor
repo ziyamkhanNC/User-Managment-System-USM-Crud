@@ -1,0 +1,84 @@
+﻿@code {
+
+    private List<UserDto> UserList = new();
+
+    private List<UserDto> FilteredUsers = new();
+
+    private bool IsLoading = true;
+
+    private string SearchTerm = "";
+
+    protected override async Task OnInitializedAsync()
+    {
+        await LoadUsers();
+    }
+
+    private async Task LoadUsers()
+    {
+        IsLoading = true;
+
+        UserList = (await UserApiService.GetUsersAsync()).ToList();
+
+        FilteredUsers = UserList;
+
+        IsLoading = false;
+
+        StateHasChanged();
+    }
+
+    private void OnSearchChanged(string value)
+    {
+        SearchTerm = value;
+
+        if (string.IsNullOrWhiteSpace(SearchTerm))
+        {
+            FilteredUsers = UserList;
+            return;
+        }
+
+        FilteredUsers = UserList
+            .Where(u =>
+                u.Name.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase) ||
+                u.Email.Contains(SearchTerm, StringComparison.OrdinalIgnoreCase))
+            .ToList();
+    }
+
+    private void GoToCreate()
+    {
+        Navigation.NavigateTo("/users/create");
+    }
+
+    private void EditUser(int id)
+    {
+        Navigation.NavigateTo($"/users/edit/{id}");
+    }
+
+    private async Task DeleteUser(int id)
+    {
+        bool confirm = await JS.InvokeAsync<bool>(
+            "confirm",
+            "Are you sure you want to delete this user?"
+        );
+
+        if (!confirm)
+            return;
+
+        await UserApiService.DeleteUserAsync(id);
+
+        await LoadUsers();
+    }
+
+    private string GetInitials(string name)
+    {
+        if (string.IsNullOrWhiteSpace(name))
+            return "";
+
+        var parts = name.Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+        if (parts.Length == 1)
+            return parts[0][0].ToString().ToUpper();
+
+        return $"{parts[0][0]}{parts[1][0]}".ToUpper();
+    }
+
+}

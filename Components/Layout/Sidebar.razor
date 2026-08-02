@@ -1,0 +1,38 @@
+<aside class="bg-white border-end border-light-subtle flex-shrink-0 d-flex flex-column justify-between p-3 @(IsOpen ? "d-block" : "d-none d-lg-flex")" style="width: 250px; min-height: calc(100vh - 64px);">
+    <div>
+        <div class="px-2 mb-3">
+            <span class="text-uppercase text-muted fw-bold fs-8 tracking-wider">Navigation</span>
+        </div>
+
+        <div class="nav flex-column nav-pills gap-1">
+            <NavLink class="nav-link d-flex align-items-center gap-3 px-3 py-2.5 rounded-3 fw-semibold text-secondary" href="" Match="NavLinkMatch.All">
+                <i class="bi bi-speedometer2 fs-5"></i>
+                <span>Dashboard</span>
+            </NavLink>
+
+            <NavLink class="nav-link d-flex align-items-center gap-3 px-3 py-2.5 rounded-3 fw-semibold text-secondary" href="users">
+                <i class="bi bi-people fs-5"></i>
+                <span>Users</span>
+            </NavLink>
+
+            <NavLink class="nav-link d-flex align-items-center gap-3 px-3 py-2.5 rounded-3 fw-semibold text-secondary" href="users/create">
+                <i class="bi bi-person-plus fs-5"></i>
+                <span>Create User</span>
+            </NavLink>
+        </div>
+    </div>
+
+    <div class="p-3 bg-light rounded-3 border border-light-subtle">
+        <div class="d-flex align-items-center gap-2">
+            <i class="bi bi-shield-check text-success fs-5"></i>
+            <div>
+                <div class="fw-bold text-dark fs-8">.NET 10 Blazor</div>
+                <div class="text-muted fs-8">Bootstrap 5 Architecture</div>
+            </div>
+        </div>
+    </div>
+</aside>
+
+@code {
+    [Parameter] public bool IsOpen { get; set; }
+}
