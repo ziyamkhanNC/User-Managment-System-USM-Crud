@@ -1,0 +1,8 @@
+C:\Users\Muhammad Ziyam khan\OneDrive\Desktop\UserManagementApi CRUD  PROJECT\UserManagementApi\UserManagementApi\obj\Debug\net10.0\UserManagementApi.csproj.AssemblyReference.cache
+C:\Users\Muhammad Ziyam khan\OneDrive\Desktop\UserManagementApi CRUD  PROJECT\UserManagementApi\UserManagementApi\obj\Debug\net10.0\rpswa.dswa.cache.json
+C:\Users\Muhammad Ziyam khan\OneDrive\Desktop\UserManagementApi CRUD  PROJECT\UserManagementApi\UserManagementApi\obj\Debug\net10.0\UserManagementApi.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Muhammad Ziyam khan\OneDrive\Desktop\UserManagementApi CRUD  PROJECT\UserManagementApi\UserManagementApi\obj\Debug\net10.0\UserManagementApi.AssemblyInfoInputs.cache
+C:\Users\Muhammad Ziyam khan\OneDrive\Desktop\UserManagementApi CRUD  PROJECT\UserManagementApi\UserManagementApi\obj\Debug\net10.0\UserManagementApi.AssemblyInfo.cs
+C:\Users\Muhammad Ziyam khan\OneDrive\Desktop\UserManagementApi CRUD  PROJECT\UserManagementApi\UserManagementApi\obj\Debug\net10.0\UserManagementApi.csproj.CoreCompileInputs.cache
+C:\Users\Muhammad Ziyam khan\OneDrive\Desktop\UserManagementApi CRUD  PROJECT\UserManagementApi\UserManagementApi\obj\Debug\net10.0\UserManagementApi.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Muhammad Ziyam khan\OneDrive\Desktop\UserManagementApi CRUD  PROJECT\UserManagementApi\UserManagementApi\obj\Debug\net10.0\UserManagementApi.MvcApplicationPartsAssemblyInfo.cache
